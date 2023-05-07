@@ -8,5 +8,10 @@
 </head>
 <body>
       <%- include('partials/_header') %>
+      <ul>
+        <% for (const map of favMaps) { %>
+        <li><%= map.name %></li>
+        <% } %>
+      </ul>
 </body>
 </html>
