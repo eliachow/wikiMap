@@ -42,6 +42,7 @@ const usersRoutes = require('./routes/users');
 const indexRoutes = require('./routes/index');
 const profileRoutes = require('./routes/profile');
 const loginRoutes = require('./routes/login');
+const favMapsRoutes = require('./routes/fav_maps');
 
 
 // Mount all resource routes
@@ -53,6 +54,7 @@ app.use('/users', usersRoutes);
 app.use('/', indexRoutes);
 app.use('/profile', profileRoutes);
 app.use('/login', loginRoutes);
+app.use('/fav_maps', favMapsRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
