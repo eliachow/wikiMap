@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-// 1. Query for read favorite_maps by user route
+// Query for read favorite_maps by user route
 const getFavMapsByUser = (userID) => {
   return db.query(`SELECT DISTINCT fav_maps.*, maps.* 
   FROM maps 
@@ -8,4 +8,14 @@ const getFavMapsByUser = (userID) => {
   WHERE fav_maps.user_id = $1`, [userID])  
 }
 
-module.exports = { getFavMapsByUser };
+
+// Delete from fav_maps list (on profile page)
+const removeFavMaps = (mapID, userID) => {
+  return db.query(`DELETE FROM fav_maps WHERE map_id = $1 AND user_id = $2;`, [mapID, userID])     
+}
+
+
+module.exports = { 
+  getFavMapsByUser,
+  removeFavMaps
+ };
