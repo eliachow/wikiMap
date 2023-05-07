@@ -1,0 +1,13 @@
+INSERT INTO fav_maps (user_id, map_id) VALUES (1, 1);
+INSERT INTO fav_maps (user_id, map_id) VALUES (1, 2);
+INSERT INTO fav_maps (user_id, map_id) VALUES (1, 3);
+INSERT INTO fav_maps (user_id, map_id) VALUES (1, 4);
+INSERT INTO fav_maps (user_id, map_id) VALUES (2, 1);
+INSERT INTO fav_maps (user_id, map_id) VALUES (2, 5);
+INSERT INTO fav_maps (user_id, map_id) VALUES (3, 3);
+INSERT INTO fav_maps (user_id, map_id) VALUES (3, 6);
+INSERT INTO fav_maps (user_id, map_id) VALUES (4, 4);
+INSERT INTO fav_maps (user_id, map_id) VALUES (4, 5);
+INSERT INTO fav_maps (user_id, map_id) VALUES (5, 7);
+INSERT INTO fav_maps (user_id, map_id) VALUES (5, 8);
+INSERT INTO fav_maps (user_id, map_id) VALUES (5, 1);
