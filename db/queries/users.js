@@ -7,4 +7,11 @@ const getUsers = () => {
     });
 };
 
-module.exports = { getUsers };
+const getUserByEmail = (email) => {
+  return db.query('SELECT * FROM users WHERE email = $1', [email]);
+}
+
+module.exports = { 
+  getUsers,
+  getUserByEmail
+};
