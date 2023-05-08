@@ -25,7 +25,9 @@
 <body>
     <%- include('partials/_header') %>
     <ul>
-      <li>Map List</li>
+      <% for (const map of maps) { %>
+      <li><%= map.name %></li>
+    <% } %>
     </ul>
     <div id="map"></div>
 
