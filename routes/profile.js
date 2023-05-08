@@ -1,5 +1,6 @@
 const express = require('express');
 const { getFavMapsByUser, addFavMaps } = require('../db/queries/fav_maps');
+const { getMapsByCreatorID } = require('../db/queries/maps');
 const router  = express.Router();
 
 
@@ -9,14 +10,22 @@ router.get('/:id', (req, res) => {
   /**option to use templateVars:
    * const templateVars = {}
    */
-  getFavMapsByUser(id)
-  .then(data => {
-    // send object list of fav maps to profile.ejs file by userID
-      res.render('profile', {favMaps: data.rows});
+  Promise.all([
+    getFavMapsByUser(id),
+    getMapsByCreatorID(id)
+  ])
+  .then(([favMapsData, creatorMapsData]) => {
+    const favMaps = favMapsData.rows;
+    const creatorMaps = creatorMapsData.rows;
+    console.log("👉👉👉favMaps: ", favMaps);
+    console.log("👉👉👉creatorMaps: ", creatorMaps)
+
+    res.render('profile', { favMaps, creatorMaps });
   })
   .catch(err => {
       res
         .status(500)
+        .send("Internal Server Error")
         // need to create error ejs page - render error page: 
         // .render('error', {
         //   message: 'Something went wrong'
