@@ -1,6 +1,7 @@
 const express = require('express');
-const { getFavMapsByUser } = require('../db/queries/fav_maps');
+const { getFavMapsByUser, addFavMaps } = require('../db/queries/fav_maps');
 const router  = express.Router();
+
 
 // Render user's profile page
 router.get('/:id', (req, res) => {
@@ -24,5 +25,22 @@ router.get('/:id', (req, res) => {
      })
 
 }); 
+
+
+// Add favorite maps
+router.post('/:id', (req, res) => {
+  const { id } = req.params;
+  const { mapID } = req.body;
+  addFavMaps(mapID, id)
+  .then(() => {
+    res.redirect(`/profile/${id}`);
+  })
+  .catch(err => {
+    res
+    .status(500)
+    console.log("error: ", err);
+  })
+})
+
 
 module.exports = router;
