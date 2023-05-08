@@ -7,7 +7,18 @@
   <title>Profile</title>
 </head>
 <body>
+    <!-- nav bar -->
       <%- include('partials/_header') %>
+
+      <!-- list of maps by creatorID -->
+      <ul>
+        <% for (const creatorMap of creatorMaps) { %>
+        <li><%= creatorMap.name %></li>
+        <% } %>
+      </ul>
+      
+
+      <!-- list of fav maps -->
       <ul>
         <% for (const map of favMaps) { %>
         <li><%= map.name %></li>
