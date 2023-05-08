@@ -1,7 +1,17 @@
 const db = require('../connection');
 
+
 const getAllMaps = () => {
   return db.query(`SELECT * FROM maps`)
 }
 
-module.exports = { getAllMaps };
+
+const getMapsByCreatorID = (creatorID) => {
+  return db.query(`SELECT * FROM maps WHERE creator_id = ${creatorID}`)
+}
+
+
+module.exports = { 
+  getAllMaps,
+  getMapsByCreatorID
+ };
